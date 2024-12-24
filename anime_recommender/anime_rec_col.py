@@ -12,8 +12,7 @@ anime_csv_path = os.path.join(current_dir, "anime.csv")
 anime = pd.read_csv(anime_csv_path)
 #ratings = pd.read_csv(ratings_csv_path)
 ratings_csv_url = "https://drive.google.com/uc?id=1qTvKgmgkLGGoytKa1lFQyUap6lkGJdRh"
-ratings_csv_path=os.path.join(current_dir,ratings_csv_url)
-ratings = pd.read_csv(ratings_csv_path)
+ratings = pd.read_csv(ratings_csv_url)
 
 # %%
 ratings.rename(columns={"anime_id":"MAL_ID"},inplace=True)
