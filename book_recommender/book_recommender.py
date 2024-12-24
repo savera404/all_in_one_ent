@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
+import zipfile
 
 # %%
 # books=pd.read_csv("Books.csv")
@@ -9,13 +10,17 @@ import os
 # users=pd.read_csv("Users.csv")
 # Get the directory of the current file (movie_recommender.py)
 current_dir = os.path.dirname(__file__)
-books_csv_path = os.path.join(current_dir, "Books.csv")
+books_zip_path = os.path.join(current_dir, "Books.zip")
 ratings_csv_path = os.path.join(current_dir, "Ratings.csv")
 users_csv_path = os.path.join(current_dir, "Users.csv")
 
-books=pd.read_csv(books_csv_path)
+
 ratings=pd.read_csv(ratings_csv_path)
 users=pd.read_csv(users_csv_path)
+# Extract and load the .zip file
+with zipfile.ZipFile(books_zip_path, 'r') as z:
+    with z.open('Books.csv') as f:  # Adjust if the file name inside the .zip differs
+        books = pd.read_csv(f)
 
 # %%
 books.isnull().sum()
