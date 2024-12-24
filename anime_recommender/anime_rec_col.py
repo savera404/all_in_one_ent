@@ -20,10 +20,10 @@ anime = pd.read_csv(anime_csv_path)
 #output_path = "ratings.csv"  # Save the file locally
 
 # Download the file
-gdown.download(url, output_path, quiet=False)
+#gdown.download(url, output_path, quiet=False)
 
 # Load the downloaded CSV
-ratings = pd.read_csv(output_path)
+#ratings = pd.read_csv(output_path)
 
 # %%
 ratings.rename(columns={"anime_id":"MAL_ID"},inplace=True)
