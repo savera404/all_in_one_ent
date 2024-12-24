@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
+import gdown
 
 # %%
 current_dir = os.path.dirname(__file__)
@@ -11,8 +12,18 @@ anime_csv_path = os.path.join(current_dir, "anime.csv")
 # Load the CSV files using the full paths
 anime = pd.read_csv(anime_csv_path)
 #ratings = pd.read_csv(ratings_csv_path)
-ratings_csv_url = "https://drive.google.com/uc?export=download&id=1qTvKgmgkLGGoytKa1lFQyUap6lkGJdRh"
-ratings = pd.read_csv(ratings_csv_url)
+#ratings_csv_url = "https://drive.google.com/uc?export=download&id=1qTvKgmgkLGGoytKa1lFQyUap6lkGJdRh"
+#ratings = pd.read_csv(ratings_csv_url)
+
+file_id = "1qTvKgmgkLGGoytKa1lFQyUap6lkGJdRh"
+url = f"https://drive.google.com/uc?id={file_id}"
+output_path = "ratings.csv"  # Save the file locally
+
+# Download the file
+gdown.download(url, output_path, quiet=False)
+
+# Load the downloaded CSV
+ratings = pd.read_csv(output_path)
 
 # %%
 ratings.rename(columns={"anime_id":"MAL_ID"},inplace=True)
