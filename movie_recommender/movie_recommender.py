@@ -18,11 +18,14 @@ import os
 # Get the directory of the current file (movie_recommender.py)
 current_dir = os.path.dirname(__file__)
 movies_csv_path = os.path.join(current_dir, "tmdb_5000_movies.csv")
-credits_csv_path = os.path.join(current_dir, "tmdb_5000_credits.csv")
+credits_csv_path = os.path.join(current_dir, "tmdb_5000_credits.zip")
 
 # Load the CSV files using the full paths
 movies = pd.read_csv(movies_csv_path)
-creds = pd.read_csv(credits_csv_path)
+# Extract and load the .zip file
+with zipfile.ZipFile(credits_zip_path, 'r') as z:
+    with z.open('tmdb_5000_credits.csv') as f:  # Adjust if the file name inside the .zip differs
+        creds = pd.read_csv(f)
 
 # In[7]:
 
