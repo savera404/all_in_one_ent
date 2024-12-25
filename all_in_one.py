@@ -20,8 +20,8 @@ def choose_type():
             st.switch_page("pages/movie.py")
         elif rec_type == "Books":
             st.switch_page("pages/book.py")
-      #  elif rec_type == "Animes":
-       #     st.switch_page("pages/anime.py")
+        elif rec_type == "Animes":
+            st.switch_page("pages/anime.py")
         elif rec_type=="Kdramas":
             st.switch_page("pages/kdrama.py")
         st.rerun()
