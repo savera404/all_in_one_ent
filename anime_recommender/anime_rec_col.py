@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
-import gdown
+import py7zr
 
 # %%
 current_dir = os.path.dirname(__file__)
@@ -15,15 +15,30 @@ anime = pd.read_csv(anime_csv_path)
 #ratings_csv_url = "https://drive.google.com/uc?export=download&id=1qTvKgmgkLGGoytKa1lFQyUap6lkGJdRh"
 #ratings = pd.read_csv(ratings_csv_url)
 
-file_id =  "1UsrY0ewMiTcQqPiQVXkbLCjOefsABm5l"
-url = f"https://drive.google.com/uc?id={file_id}"
-output_path = "ratings.csv"  # Save the file locally
+#file_id =  "1UsrY0ewMiTcQqPiQVXkbLCjOefsABm5l"
+#url = f"https://drive.google.com/uc?id={file_id}"
+#output_path = "ratings.csv"  # Save the file locally
 
 # Download the file
-gdown.download(url, output_path, quiet=False)
+#gdown.download(url, output_path, quiet=False)
+# Google Drive direct download link
+file_url = "https://drive.google.com/uc?id=1Ewyk5Q2vdpfSp80ziD5W1Ig_pLQVwYLJ"
 
-# Load the downloaded CSV
-ratings = pd.read_csv(output_path)
+# Step 1: Download the .7z file
+response = requests.get(file_url, stream=True)
+with open("data.7z", "wb") as f:
+    for chunk in response.iter_content(chunk_size=1024):
+        if chunk:
+            f.write(chunk)
+
+# Step 2: Extract the .7z file
+with py7zr.SevenZipFile("data.7z", mode="r") as archive:
+    archive.extractall(path="data")
+
+# Step 3: Load the CSV from the extracted files
+csv_file_path = os.path.join("data", "your_file_name.csv")
+
+ratings = pd.read_csv(csv_file_path)
 
 # %%
 ratings.rename(columns={"anime_id":"MAL_ID"},inplace=True)
