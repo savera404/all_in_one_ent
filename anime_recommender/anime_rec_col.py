@@ -37,7 +37,7 @@ with py7zr.SevenZipFile("data.7z", mode="r") as archive:
     archive.extractall(path="data")
 
 # Step 3: Load the CSV from the extracted files
-csv_file_path = os.path.join("data", "your_file_name.csv")
+csv_file_path = os.path.join("data", "ratings3.csv")
 
 ratings = pd.read_csv(csv_file_path)
 
