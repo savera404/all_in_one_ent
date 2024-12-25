@@ -15,12 +15,12 @@ anime = pd.read_csv(anime_csv_path)
 #ratings_csv_url = "https://drive.google.com/uc?export=download&id=1qTvKgmgkLGGoytKa1lFQyUap6lkGJdRh"
 #ratings = pd.read_csv(ratings_csv_url)
 
-file_id =  "1UsrY0ewMiTcQqPiQVXkbLCjOefsABm5l"
-url = f"https://drive.google.com/uc?id={file_id}"
-output_path = "ratings.csv"  # Save the file locally
+#file_id =  "1UsrY0ewMiTcQqPiQVXkbLCjOefsABm5l"
+#url = f"https://drive.google.com/uc?id={file_id}"
+#output_path = "ratings.csv"  # Save the file locally
 
 # Download the file
-gdown.download(url, output_path, quiet=False)
+#gdown.download(url, output_path, quiet=False)
 
 # Load the downloaded CSV
 ratings = pd.read_csv(output_path)
