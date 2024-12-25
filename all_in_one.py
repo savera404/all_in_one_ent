@@ -1,9 +1,9 @@
 import streamlit as st
 
 st.title("All in One Recommender System")
-st.header("See recommendations for movies, books, animes and kdramas")
+st.header("See recommendations for movies, books, and kdramas")
 
-ent_types=[None,"Movies","Books","Animes","Kdramas"]
+ent_types=[None,"Movies","Books","Kdramas"]
 
 if "ent_type" not in st.session_state:
     st.session_state.ent_type = None
