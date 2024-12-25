@@ -2,7 +2,7 @@ import streamlit as st
 
 st.title("All in One Recommender System")
 st.header("See recommendations for movies, books, and kdramas")
-menu = st.sidebar.radio("Select an option:", ["Home", "book", "kdrama", "movie"])
+
 
 
 ent_types=[None,"Movies","Books","Kdramas"]
