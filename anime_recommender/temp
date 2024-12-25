@@ -1,1 +1,1 @@
-temp
+This project has two csv files but due to Github and Streamlit's size limit, the other csv file, ratings3.csv could not be added. Therefore, the anime_rec_col.py also contains the link to the ratings3.csv file uploaded on my google drive. The running code will download and use the file. 
