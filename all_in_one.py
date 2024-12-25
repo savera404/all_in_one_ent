@@ -33,6 +33,4 @@ ent_type = st.session_state.ent_type
 
 choose_type()
 
-# to_movie_page=st.Page("movie_recommender/movie.py",
-#                       default=(ent_type=="Movies"),
-# )
+
